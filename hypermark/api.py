@@ -16,14 +16,14 @@ def extract_links(text):
             links.add(url)
     return list(links)
 
-class Hypertext(object):
+class HyperText(object):
 
     def __init__(self):
         self.state = {}
         self.encoding = 'utf-8'
 
     def __repr__(self):
-        return '<Hypertext {}>'.format(self.hash[:10])
+        return '<HyperText {}>'.format(self.hash[:10])
 
     @classmethod
     def _from_text(cls, text):
@@ -36,6 +36,7 @@ class Hypertext(object):
     @property
     def text(self):
         return self.__text
+        return self.__html
 
     @text.setter
     def text(self, value):
@@ -57,9 +58,17 @@ class Hypertext(object):
     def html(self):
         return markdown(self.text)
 
+    @property
+    def html(self):
+        return self.__html
+
+    @html.setter
+    def html(self, value):
+        self.__html = value
+
     def filter(self, **kwargs):
         return deepcopy(self)
 
 
 def text(content):
-    return Hypertext._from_text(content)
+    return HyperText._from_text(content)
