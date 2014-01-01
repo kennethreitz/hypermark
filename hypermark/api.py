@@ -19,7 +19,8 @@ def extract_links(text):
 class HyperText(object):
 
     def __init__(self):
-        self.state = {}
+        self.__html = None
+        self.__text = None
         self.encoding = 'utf-8'
 
     def __repr__(self):
@@ -36,7 +37,6 @@ class HyperText(object):
     @property
     def text(self):
         return self.__text
-        return self.__html
 
     @text.setter
     def text(self, value):
@@ -56,11 +56,7 @@ class HyperText(object):
 
     @property
     def html(self):
-        return markdown(self.text)
-
-    @property
-    def html(self):
-        return self.__html
+        return self.__html or markdown(self.text)
 
     @html.setter
     def html(self, value):
