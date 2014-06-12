@@ -14,7 +14,7 @@ extendable, and filterable.
 >>> content = "# fuck yea\nhttp://github.com"
 
 >>> d = hypermark.text(content)
-'<Content 4e65f3a109>'
+'<HyperText 4e65f3a109>'
 
 >>> d.links
 (u'http://github.com')
