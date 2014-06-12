@@ -28,7 +28,7 @@ u'b0d842acde1988fa9e3f6dcb15008e4205fe16f5'
 <h1>fuck yea</h1>
 http://github.com
 
-# Filters!
+## Filters!
 
 >>> d.filters('bleach').html
 u'&lt;h1&gt;fuck yea&lt;/h1&gt;\n&lt;p&gt;http://github.com&lt;/p&gt;'
