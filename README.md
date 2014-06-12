@@ -28,11 +28,10 @@ u'b0d842acde1988fa9e3f6dcb15008e4205fe16f5'
 <h1>fuck yea</h1>
 http://github.com
 
+# Filters!
 
-# filter('name', key=val)
-# filter('name', key=val)
-# filter('name', key=val)
-# filter(callable, key=val)
+>>> d.filters('bleach').html
+u'&lt;h1&gt;fuck yea&lt;/h1&gt;\n&lt;p&gt;http://github.com&lt;/p&gt;'
 ```
 
 ## Vision (Work in Progress)
