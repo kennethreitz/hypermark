@@ -5,6 +5,8 @@ Markdown is Hypertext.
 Inspirational, fast, reversible,
 extendable, and filterable.
 
+ॐ
+
 
 ## Current Usage
 
