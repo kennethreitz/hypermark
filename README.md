@@ -1,6 +1,6 @@
-# Hypermark
+# Hypermark!
 
-Markdown as Hypertext.
+Markdown is Hypertext.
 
 Inspirational, fast, reversible,
 extendable, and filterable.
