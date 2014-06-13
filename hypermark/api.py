@@ -8,6 +8,9 @@ from markdown import markdown
 
 GRUBER_URLINTEXT_PAT = re.compile(ur'(?i)\b((?:https?://|www\d{0,3}[.]|[a-z0-9.\-]+[.][a-z]{2,4}/)(?:[^\s()<>]+|\(([^\s()<>]+|(\([^\s()<>]+\)))*\))+(?:\(([^\s()<>]+|(\([^\s()<>]+\)))*\)|[^\s`!()\[\]{};:\'".,<>?\xab\xbb\u201c\u201d\u2018\u2019]))')
 
+EMAIL_PAT = re.compile(
+ur"([a-z0-9!#$%&'*+\/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+\/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?)")
+
 def extract_links(text):
 
     links = set()
@@ -15,16 +18,23 @@ def extract_links(text):
         if url.startswith('http'):
             links.add(url)
     return list(links)
+    
+    
+def extract_emails(text):
+    
+    emails = set()
+    for email in EMAIL_PAT.findall(text):
+        emails.add(email)
+    return list(emails)
 
-class HyperText(object):
+class Hypertext(object):
 
     def __init__(self):
-        self.__html = None
-        self.__text = None
+        self.state = {}
         self.encoding = 'utf-8'
 
     def __repr__(self):
-        return '<HyperText {}>'.format(self.hash[:10])
+        return '<Hypertext {}>'.format(self.hash[:10])
 
     @classmethod
     def _from_text(cls, text):
@@ -49,6 +59,10 @@ class HyperText(object):
     @property
     def links(self):
         return extract_links(self.text)
+        
+    @property
+    def emails(self):
+        return extract_emails(self.text)
 
     @property
     def hash(self):
@@ -56,15 +70,11 @@ class HyperText(object):
 
     @property
     def html(self):
-        return self.__html or markdown(self.text)
-
-    @html.setter
-    def html(self, value):
-        self.__html = value
+        return markdown(self.text)
 
     def filter(self, **kwargs):
         return deepcopy(self)
 
 
 def text(content):
-    return HyperText._from_text(content)
+    return Hypertext._from_text(content)

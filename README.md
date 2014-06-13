@@ -13,16 +13,19 @@ extendable, and filterable.
 ```pycon
 >>> import hypermark
 
->>> content = "# fuck yea\nhttp://github.com"
+>>> content = "# fuck yea\nhttp://github.com\n\nemail@example.com"
 
 >>> d = hypermark.text(content)
 '<HyperText 4e65f3a109>'
 
 >>> d.links
-(u'http://github.com')
+[u'http://github.com']
+
+>>> d.emails
+[u'email@example.com']
 
 >>> d.hash
-u'b0d842acde1988fa9e3f6dcb15008e4205fe16f5'
+u'ddac9cac1b432719c5931e04bf8d97b43045b0b7'
 
 >>> print(d.html)
 <h1>fuck yea</h1>
