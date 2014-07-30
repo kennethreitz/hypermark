@@ -52,7 +52,7 @@ class HyperText(object):
 
     @property
     def hash(self):
-        return unicode(hashlib.sha1(self.content).hexdigest())
+        return unicode(hashlib.sha256(self.content).hexdigest())
 
     @property
     def html(self):
