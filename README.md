@@ -16,17 +16,17 @@ extendable, and filterable.
 >>> content = "# fuck yea\nhttp://github.com"
 
 >>> d = hypermark.text(content)
-'<HyperText 4e65f3a109>'
+'<HyperText 7c7706acb8>'
 
 >>> d.links
-(u'http://github.com')
+['http://github.com']
 
 >>> d.hash
-u'b0d842acde1988fa9e3f6dcb15008e4205fe16f5'
+u'03a392ef91826a3506fcc54a4e1fa7b022688ec42bc4d53b4c36a8b6f8058606'
 
 >>> print(d.html)
 <h1>fuck yea</h1>
-http://github.com
+<p>http://github.com</p>
 ```
 
 ## Filters!
