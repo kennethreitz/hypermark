@@ -16,6 +16,13 @@ def extract_links(text):
             links.add(url)
     return list(links)
 
+def replace_url(matchobj):
+    # used in replace_with_links function
+	return '('+matchobj.group[0]+')['+matchobj.group[0]+']'
+
+def replace_with_links(text):
+    return re.sub(GRUBER_URLINTEXT_PAT,replace_url,content)
+    
 class HyperText(object):
 
     def __init__(self):
@@ -56,7 +63,7 @@ class HyperText(object):
 
     @property
     def html(self):
-        return self.__html or markdown(self.text)
+        return markdown(replace_with_links(self.text))
 
     @html.setter
     def html(self, value):
