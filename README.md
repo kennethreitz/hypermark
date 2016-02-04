@@ -26,7 +26,7 @@ u'03a392ef91826a3506fcc54a4e1fa7b022688ec42bc4d53b4c36a8b6f8058606'
 
 >>> print(d.html)
 <h1>fuck yea</h1>
-<p>http://github.com</p>
+<p><a href="http://github.com">http://github.com</a></p>
 ```
 
 ## Filters!
@@ -41,13 +41,12 @@ u'&lt;h1&gt;fuck yea&lt;/h1&gt;\n&lt;p&gt;http://github.com&lt;/p&gt;'
 Feature ideas:
 
 1. link extraction
-2. diff generation
-3. sha generation
-4. md->html, html->md
-5. liting?
-6. header transposing
-6. stripping?
-7. targets for headers
+1. diff generation
+1. sha generation
+1. md->html, html->md
+1. header transposing
+1. stripping?
+1. targets for headers
 
 This could, potentially, contain a lot of the basic functionality of wikis.org
 itself — would help explain the core concepts to the world, perhaps.
