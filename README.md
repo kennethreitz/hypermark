@@ -27,8 +27,20 @@ u'03a392ef91826a3506fcc54a4e1fa7b022688ec42bc4d53b4c36a8b6f8058606'
 >>> print(d.html)
 <h1>fuck yea</h1>
 <p><a href="http://github.com">http://github.com</a></p>
-```
 
+
+# Filters!
+
+>>> print(d.filter('bleach').html)
+&lt;h1&gt;fuck yea&lt;/h1&gt;
+&lt;p&gt;<a href="http://github.com">http://github.com</a>&lt;/p&gt;
+
+
+>>> print(d.filter('transpose_headers', levels=1).html)
+<h2>fuck yea</h2>
+<p><a href="http://github.com">http://github.com</a></p>
+
+```
 ## Filters!
 
 ```pycon
