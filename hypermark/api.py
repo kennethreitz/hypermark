@@ -3,6 +3,7 @@ import os
 import re
 import hashlib
 
+import html2markdown
 from copy import deepcopy
 from mistune import markdown
 
@@ -34,6 +35,13 @@ class HyperText(object):
 
         self = cls()
         self.text = text
+        return self
+
+    @classmethod
+    def _from_html(cls, html):
+        self = cls()
+        self.html = html
+        self.text = html2markdown.convert(html)
         return self
 
     @property
@@ -82,3 +90,6 @@ class HyperText(object):
 
 def text(content):
     return HyperText._from_text(content)
+
+def html(html):
+    return HyperText._from_html(html)

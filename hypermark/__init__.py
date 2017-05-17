@@ -1,1 +1,1 @@
-from .api import text
+from .api import text, html

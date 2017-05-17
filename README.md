@@ -29,6 +29,14 @@ u'03a392ef91826a3506fcc54a4e1fa7b022688ec42bc4d53b4c36a8b6f8058606'
 <p><a href="http://github.com">http://github.com</a></p>
 
 ```
+
+## Convert HTML to Markdown!
+
+```pycon
+>>> print(hypermark.html('<h1>test h1</h1>'))
+# test h1
+```
+
 ## Filters!
 
 ```pycon
