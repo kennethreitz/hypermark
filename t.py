@@ -1,10 +1,11 @@
 import hypermark
 
-content = "# fuck yea\n\n<script></script>\n\nhttp://github.com"
-content = "<h1>fuck yea</h1>"
+content1 = "# fuck yea\n\n<script></script>\n\nhttp://github.com"
+content2 = "<h1>fuck yea</h1>"
 
-# d = hypermark.text(content)
-d = hypermark.html(content)
-print d.text
+# d = hypermark.text(content1)
+# print d.html
+d = hypermark.html(content2).filter('anchors')
+print d.html
 # print d.filter('transpose_headers', levels=2).html
 

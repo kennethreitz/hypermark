@@ -1,4 +1,5 @@
 import mistune
+from mistune_contrib.toc import TocMixin
 from bleach import clean
 
 
@@ -27,4 +28,16 @@ def transpose_headers(t, levels=1):
     renderer = HeaderTransposingRenderer()
     markdown = mistune.Markdown(renderer=renderer)
     t.html = markdown(t.text)
+    return t
+
+def anchors(t, levels=3):
+    class TOCRenderer(TocMixin, mistune.Renderer):
+        pass
+
+    renderer = TOCRenderer()
+    markdown = mistune.Markdown(renderer=renderer)
+    renderer.reset_toc()
+    markdown.parse(t.text)
+    t.html = markdown(t.text)
+
     return t

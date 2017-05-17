@@ -6,3 +6,4 @@ verify_ssl = true
 mistune = "==0.7.1"
 bleach = "*"
 html2markdown = "*"
+mistune-contrib = "*"
