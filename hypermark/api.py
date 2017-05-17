@@ -6,6 +6,8 @@ import hashlib
 from copy import deepcopy
 from mistune import markdown
 
+from .bootstrap import session
+
 GRUBER_URLINTEXT_PAT = re.compile(ur'(?i)\b((?:https?://|www\d{0,3}[.]|[a-z0-9.\-]+[.][a-z]{2,4}/)(?:[^\s()<>]+|\(([^\s()<>]+|(\([^\s()<>]+\)))*\))+(?:\(([^\s()<>]+|(\([^\s()<>]+\)))*\)|[^\s`!()\[\]{};:\'".,<>?\xab\xbb\u201c\u201d\u2018\u2019]))')
 
 def extract_links(text):
@@ -62,8 +64,20 @@ class HyperText(object):
     def html(self, value):
         self.__html = value
 
-    def filter(self, **kwargs):
-        return deepcopy(self)
+    def filter(self, label, _session=None, **kwargs):
+        if _session is None:
+            _session = session
+
+        filter = session.filters[label]
+        copy = deepcopy(self)
+
+
+        args = filter['defaults'][0] or {}
+        kwargs.update(filter['defaults'][1]) or {}
+
+        copy = filter['callable'](copy, *args, **kwargs)
+
+        return copy
 
 
 def text(content):

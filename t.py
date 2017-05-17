@@ -1,7 +1,9 @@
 import hypermark
 
-content = "# fuck yea\nhttp://github.com"
+from hypermark.bootstrap import session
+content = "# fuck yea\n\n<script></script>\n\nhttp://github.com"
+
 
 d = hypermark.text(content)
 
-print(d.html)
+print d.filter('transpose_headers', levels=2).html
