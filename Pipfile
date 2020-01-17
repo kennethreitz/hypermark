@@ -3,7 +3,7 @@ url = "https://pypi.python.org/simple"
 verify_ssl = true
 
 [packages]
-mistune = "==0.7.1"
+mistune = "*"
 bleach = "*"
 html2markdown = "*"
 mistune-contrib = "*"
