@@ -10,12 +10,12 @@ class Session(object):
         """
 
         self.filters[label] = {
-            'callable': filter,
-            'default': default,
-            'defaults': (def_args, def_kwargs)
+            "callable": filter,
+            "default": default,
+            "defaults": (def_args, def_kwargs),
         }
 
     def _iter_default_filters(self):
         for (label, filter) in self.filters.items():
-            if filter['default']:
+            if filter["default"]:
                 yield filter

@@ -9,25 +9,28 @@ from mistune import markdown
 
 from .bootstrap import session
 
-GRUBER_URLINTEXT_PAT = re.compile(ur'(?i)\b((?:https?://|www\d{0,3}[.]|[a-z0-9.\-]+[.][a-z]{2,4}/)(?:[^\s()<>]+|\(([^\s()<>]+|(\([^\s()<>]+\)))*\))+(?:\(([^\s()<>]+|(\([^\s()<>]+\)))*\)|[^\s`!()\[\]{};:\'".,<>?\xab\xbb\u201c\u201d\u2018\u2019]))')
+GRUBER_URLINTEXT_PAT = re.compile(
+    r"(?i)\b((?:https?://|www\d{0,3}[.]|[a-z0-9.\-]+[.][a-z]{2,4}/)(?:[^\s()<>]+|\(([^\s()<>]+|(\([^\s()<>]+\)))*\))+(?:\(([^\s()<>]+|(\([^\s()<>]+\)))*\)|[^\s`!()\[\]{};:'\".,<>?\xab\xbb\u201c\u201d\u2018\u2019]))"
+)
+
 
 def extract_links(text):
 
     links = set()
-    for url in(mgroups[0] for mgroups in GRUBER_URLINTEXT_PAT.findall(text)):
-        if url.startswith('http'):
+    for url in (mgroups[0] for mgroups in GRUBER_URLINTEXT_PAT.findall(text)):
+        if url.startswith("http"):
             links.add(url)
     return list(links)
 
-class HyperText(object):
 
+class HyperText(object):
     def __init__(self):
         self.__html = None
         self.__text = None
-        self.encoding = 'utf-8'
+        self.encoding = "utf-8"
 
     def __repr__(self):
-        return '<HyperText {}>'.format(self.hash[:10])
+        return "<HyperText {}>".format(self.hash[:10])
 
     @classmethod
     def _from_text(cls, text):
@@ -62,7 +65,7 @@ class HyperText(object):
 
     @property
     def hash(self):
-        return unicode(hashlib.sha256(self.content).hexdigest())
+        return hashlib.sha256(self.content).hexdigest().encode("utf-8")
 
     @property
     def html(self):
@@ -79,17 +82,17 @@ class HyperText(object):
         filter = session.filters[label]
         copy = deepcopy(self)
 
+        args = filter["defaults"][0] or {}
+        kwargs.update(filter["defaults"][1]) or {}
 
-        args = filter['defaults'][0] or {}
-        kwargs.update(filter['defaults'][1]) or {}
-
-        copy = filter['callable'](copy, *args, **kwargs)
+        copy = filter["callable"](copy, *args, **kwargs)
 
         return copy
 
 
 def text(content):
     return HyperText._from_text(content)
+
 
 def html(html):
     return HyperText._from_html(html)
