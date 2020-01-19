@@ -1,12 +1,17 @@
 # Hypermark!
 
+[![PyPI](https://img.shields.io/pypi/v/hypermark?style=flat-square)](https://pypi.org/project/hypermark/)
+[![License](https://img.shields.io/github/license/ryanccn/hypermark.svg?style=flat-square)](https://github.com/ryanccn/hypermark/blob/master/LICENSE)
+[![Dependabot Status](https://img.shields.io/badge/Dependabot-enabled-success.svg?style=flat-square&logo=dependabot)](https://dependabot.com)
+[![CodeFactor Grade](https://img.shields.io/codefactor/grade/github/ryanccn/hypermark.svg?style=flat-square)](https://www.codefactor.io/repository/github/ryanccn/hypermark)
+[![Code style: black](https://img.shields.io/badge/code_style-black-black.svg?style=flat-square)](https://github.com/python/black)
+
 Markdown is Hypertext.
 
 Inspirational, fast, reversible,
 extendable, and filterable.
 
-ॐ
-
+![ॐ](https://img.shields.io/badge/zen-ॐ-9cf.svg?style=for-the-badge)
 
 ## Current Usage
 
@@ -58,13 +63,11 @@ u'03a392ef91826a3506fcc54a4e1fa7b022688ec42bc4d53b4c36a8b6f8058606'
 
 Feature ideas:
 
-1. link extraction
-1. diff generation
-1. sha generation
-1. md->html, html->md
-1. header transposing
-1. stripping?
-1. targets for headers
+- [x] link extraction
+- [ ] diff generation
+- [x] sha generation
+- [x] md->html, html->md
+- [ ] header transposing
+- [ ] stripping?
+- [ ] targets for headers
 
-This could, potentially, contain a lot of the basic functionality of wikis.org
-itself — would help explain the core concepts to the world, perhaps.
