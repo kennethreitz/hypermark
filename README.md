@@ -66,7 +66,7 @@ Feature ideas:
 - [x] link extraction
 - [ ] diff generation
 - [x] sha generation
-- [x] md->html, html->md
+- [x] md -> html, html -> md
 - [ ] header transposing
 - [ ] stripping?
 - [ ] targets for headers
