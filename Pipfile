@@ -7,3 +7,6 @@ mistune = "*"
 bleach = "*"
 html2markdown = "*"
 mistune-contrib = "*"
+
+[dev-packages]
+pytest = "*"

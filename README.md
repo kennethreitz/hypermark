@@ -70,4 +70,4 @@ Feature ideas:
 - [ ] header transposing
 - [ ] stripping?
 - [ ] targets for headers
-
+- [ ] expand tests
