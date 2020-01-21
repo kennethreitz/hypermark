@@ -8,7 +8,8 @@ python:
   - "3.8-dev"
   - "nightly"
 install:
-  - pip install pytest
-  - python3 setup.py install
+  - pip install pipenv --upgrade
+	- pipenv install --dev
+  - python setup.py install
 script:
   - pytest
