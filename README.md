@@ -2,7 +2,6 @@
 
 [![PyPI](https://img.shields.io/pypi/v/hypermark?style=flat-square)](https://pypi.org/project/hypermark/)
 [![License](https://img.shields.io/github/license/ryanccn/hypermark.svg?style=flat-square)](https://github.com/ryanccn/hypermark/blob/master/LICENSE)
-[![Travis (.org)](https://img.shields.io/travis/ryanccn/hypermark?style=flat-square)](https://travis-ci.org/ryanccn/hypermark)
 [![Dependabot Status](https://img.shields.io/badge/Dependabot-enabled-success.svg?style=flat-square&logo=dependabot)](https://dependabot.com)
 [![CodeFactor Grade](https://img.shields.io/codefactor/grade/github/ryanccn/hypermark.svg?style=flat-square)](https://www.codefactor.io/repository/github/ryanccn/hypermark)
 [![Code style: black](https://img.shields.io/badge/code_style-black-black.svg?style=flat-square)](https://github.com/python/black)
