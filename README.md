@@ -17,7 +17,7 @@ extendable, and filterable.
 ```pycon
 >>> import hypermark
 
->>> content = "# fuck yea\nhttp://github.com"
+>>> content = "# fuck yea\nhttp://github.com\n\nemail@example.com"
 
 >>> d = hypermark.text(content)
 '<HyperText 7c7706acb8>'

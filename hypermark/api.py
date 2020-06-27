@@ -14,6 +14,9 @@ GRUBER_URLINTEXT_PAT = re.compile(
 )
 
 
+EMAIL_PAT = re.compile(
+ur"([a-z0-9!#$%&'*+\/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+\/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?)")
+
 def extract_links(text):
 
     links = set()
@@ -21,6 +24,14 @@ def extract_links(text):
         if url.startswith("http"):
             links.add(url)
     return list(links)
+    
+    
+def extract_emails(text):
+    
+    emails = set()
+    for email in EMAIL_PAT.findall(text):
+        emails.add(email)
+    return list(emails)
 
 
 class HyperText(object):
@@ -62,6 +73,10 @@ class HyperText(object):
     @property
     def links(self):
         return extract_links(self.text)
+        
+    @property
+    def emails(self):
+        return extract_emails(self.text)
 
     @property
     def hash(self):
@@ -69,11 +84,7 @@ class HyperText(object):
 
     @property
     def html(self):
-        return self.__html or markdown(self.text)
-
-    @html.setter
-    def html(self, value):
-        self.__html = value
+        return markdown(self.text)
 
     def filter(self, label, _session=None, **kwargs):
         if _session is None:
