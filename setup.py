@@ -10,7 +10,7 @@ DESCRIPTION = "Markdown for Humans"
 URL = "https://github.com/ryanccn/hypermark"
 EMAIL = "me@kennethreitz.org"
 AUTHOR = "Kenneth Reitz"
-REQUIRES_PYTHON = ">=3.6.0"
+REQUIRES_PYTHON = ">=3.5.0"
 VERSION = "0.0.1"
 
 REQUIRED = ["bleach", "html2markdown", "mistune", "mistune-contrib"]
