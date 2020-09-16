@@ -23,10 +23,10 @@
         },
         "bleach": {
             "hashes": [
-                "sha256:2bce3d8fab545a6528c8fa5d9f9ae8ebc85a56da365c7f85180bfe96a35ef22f",
-                "sha256:3c4c520fdb9db59ef139915a5db79f8b51bc2a7257ea0389f30c846883430a4b"
+                "sha256:769483204d247465c0b001ead257fb86bba6944bce6fe1b6759c812cceb54e3d",
+                "sha256:f9e0205cc57b558c21bdfc11034f9d96b14c4052c25be60885d94f4277c792e0"
             ],
-            "version": "==3.1.5"
+            "version": "==3.2.0"
         },
         "html2markdown": {
             "hashes": [
